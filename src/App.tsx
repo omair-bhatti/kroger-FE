@@ -1,9 +1,7 @@
-import { ManageSearch } from './features'
+import { ManageSearch } from "./features";
 
 function App() {
-  return (
-    <ManageSearch />
-  )
+  return <ManageSearch />;
 }
 
-export default App
+export default App;

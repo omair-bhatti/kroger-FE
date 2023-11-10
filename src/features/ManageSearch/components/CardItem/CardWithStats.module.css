@@ -1,15 +1,37 @@
+/* CardsPage.module.css */
+
 .card {
-    background-color: var(--mantine-color-body);
-  }
-  
-  .footer {
-    display: flex;
+  background-color: var(--mantine-color-body);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--mantine-spacing-sm) var(--mantine-spacing-lg);
+  border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+}
+
+.title {
+  font-family: Greycliff CF, var(--mantine-font-family);
+  line-height: 1;
+}
+
+/* Responsiveness Code */
+
+@media (min-width: 768px) {
+  .cardContainer {
     justify-content: space-between;
-    padding: var(--mantine-spacing-sm) var(--mantine-spacing-lg);
-    border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
   }
-  
-  .title {
-    font-family: Greycliff CF, var(--mantine-font-family);
-    line-height: 1;
+}
+
+@media (min-width: 1024px) {
+  .cardContainer {
+    width: 30%; /* Adjust the width for 3 cards per row */
   }
+}
+
+@media (min-width: 1200px) {
+  .cardContainer {
+    width: 23%; /* Adjust the width for 4 cards per row */
+  }
+}

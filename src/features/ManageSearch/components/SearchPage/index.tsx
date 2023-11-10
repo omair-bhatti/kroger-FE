@@ -44,7 +44,9 @@ export const SearchPage = () => {
             placeholder="Total Results"
             onChange={(e: number) => setQuantity(e)}
           />
-          <Button onClick={handleSearch}>Search</Button>
+          <Button mt="lg" onClick={handleSearch}>
+            Search
+          </Button>
         </Paper>
         <CardsPage products={products} toShow={toShow} />
       </Paper>

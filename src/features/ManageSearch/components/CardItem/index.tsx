@@ -10,7 +10,7 @@ export const CardItem = ({ product }: any) => {
   );
 
   return (
-    <Card withBorder padding="lg" className={classes.card} w="20%">
+    <Card withBorder padding="lg" className={classes.card} w="250px">
       <Card.Section>
         <Image
           fit="contain"

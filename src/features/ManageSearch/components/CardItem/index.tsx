@@ -1,7 +1,7 @@
-import { Card, Image, Text, Group, Flex } from "@mantine/core";
+import { Card, Image, Text, Group, Flex, Button } from "@mantine/core";
 import classes from "./CardWithStats.module.css";
 
-export const CardItem = ({ product }: any) => {
+export const CardItem = ({ product, handleAddToCart }: any) => {
   const items = (
     <Flex justify="space-around" gap="lg" align="start">
       <Text size="xs">{product?.brand}</Text>
@@ -38,6 +38,13 @@ export const CardItem = ({ product }: any) => {
         description description
       </Text>
       <Card.Section>{items}</Card.Section>
+      <Card.Section>
+        <Flex justify="center" align="center" m="10px">
+          <Button compact onClick={() => handleAddToCart(product)}>
+            Add to Cart
+          </Button>
+        </Flex>
+      </Card.Section>
     </Card>
   );
 };

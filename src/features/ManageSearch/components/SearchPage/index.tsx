@@ -1,14 +1,19 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useCallback, useState } from "react";
 import { Button, NumberInput, Paper, TextInput } from "@mantine/core";
 import { CardsPage } from "../CardsPage";
 import axios from "axios";
+import { Cart } from "../Cart";
 
 export const SearchPage = () => {
   const [search, setSearch] = useState<string>("");
   const [quantity, setQuantity] = useState<number>(10);
   const [products, setProducts] = useState<any>();
   const [toShow, setToShow] = useState<number>(1);
+  const [isCartOpened, setCartOpened] = useState<boolean>(false);
+  const [cartItems, setCartItems] = useState([]);
+
   const handleSearch = async () => {
+    console.log("reevaluated");
     setToShow(2);
     await axios
       .get(
@@ -19,8 +24,18 @@ export const SearchPage = () => {
       })
       .then(() => setToShow(3));
   };
+  const closeCart = useCallback(() => {
+    setCartOpened(false);
+  }, [isCartOpened]);
+  console.log("cart ", cartItems);
   return (
     <Fragment>
+      <Cart
+        isCartOpened={isCartOpened}
+        closeCart={closeCart}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+      />
       <Paper style={{ padding: "10px" }}>
         <Paper
           style={{
@@ -47,8 +62,17 @@ export const SearchPage = () => {
           <Button mt="lg" onClick={handleSearch}>
             Search
           </Button>
+          <Button mt="lg" onClick={() => setCartOpened(true)}>
+            Go to Cart
+          </Button>
         </Paper>
-        <CardsPage products={products} toShow={toShow} />
+        <CardsPage
+          products={products}
+          toShow={toShow}
+          setCartOpened={setCartOpened}
+          setCartItems={setCartItems}
+          cartItems={cartItems}
+        />
       </Paper>
     </Fragment>
   );

@@ -1,4 +1,4 @@
-import { Button, Drawer, Flex, Image, Paper } from "@mantine/core";
+import { Button, Drawer, Flex, Image, Paper, Text, Title } from "@mantine/core";
 import { Fragment, useState } from "react";
 
 export const Cart = ({
@@ -39,12 +39,20 @@ export const Cart = ({
     );
     setLoading(false);
   };
+  console.log("cartitems ", cartItems.length);
 
   return (
     <Fragment>
       <Drawer opened={isCartOpened} onClose={closeCart}>
-        <Drawer.Title>Cart</Drawer.Title>
+        <Drawer.Title>
+          <Title>Cart</Title>
+        </Drawer.Title>
         <Drawer.Body>
+          {cartItems.length == 0 && (
+            <Flex justify="center" align="center" h="100vh" fz="xl">
+              <Text>No Items in Cart</Text>
+            </Flex>
+          )}
           <Paper>
             {cartItems?.map((item: any) => (
               <Flex

@@ -1,6 +1,7 @@
 //@ts-nocheck
 import React, { useState, useEffect } from "react";
 import Geohash from "./components/Geohash";
+import L from "leaflet";
 import {
   MapContainer,
   TileLayer,
@@ -197,7 +198,15 @@ export const ManageGeohash = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
-          <Marker position={[location.latitude, location.longitude]}>
+          <Marker
+            icon={L.icon({
+              iconUrl: "/person.png",
+              iconSize: [40, 40],
+              iconAnchor: [12.5, 41],
+              popupAnchor: [0, -41],
+            })}
+            position={[location.latitude, location.longitude]}
+          >
             <Popup>Your Location</Popup>
           </Marker>
           {/* Draw Rectangle around the location */}
@@ -215,7 +224,16 @@ export const ManageGeohash = () => {
           /> */}
 
           {nearbyGeohashes.map((place, index) => (
-            <Marker key={index} position={[place.latitude, place.longitude]}>
+            <Marker
+              icon={L.icon({
+                iconUrl: "/tale.png",
+                iconSize: [30, 30],
+                iconAnchor: [12.5, 41],
+                popupAnchor: [0, -41],
+              })}
+              key={index}
+              position={[place.latitude, place.longitude]}
+            >
               <Popup>{place.name}</Popup>
             </Marker>
           ))}

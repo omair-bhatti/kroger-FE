@@ -1,5 +1,5 @@
-import { Box, Flex, Text, Title } from "@mantine/core";
-import React, { Fragment } from "react";
+import { Flex, Title } from "@mantine/core";
+import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const ChooseProject = () => {

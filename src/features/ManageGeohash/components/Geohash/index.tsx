@@ -1,9 +1,5 @@
 // @ts-nocheck
 const base32 = "0123456789bcdefghjkmnpqrstuvwxyz"; // (geohash-specific) Base32 map
-
-/**
- * Geohash: Gustavo Niemeyer’s geocoding system.
- */
 class Geohash {
   /**
    * Encodes latitude/longitude to geohash, either to specified precision or to automatically

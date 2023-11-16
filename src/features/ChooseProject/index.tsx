@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export const ChooseProject = () => {
   const navigate = useNavigate();
+
   return (
     <Fragment>
       <Title align="center" mt="20px">
@@ -15,7 +16,11 @@ export const ChooseProject = () => {
           h="30%"
           justify="center"
           align="center"
-          sx={{ border: "4px solid black", borderRadius: "30px" }}
+          sx={{
+            border: "4px solid black",
+            borderRadius: "30px",
+            cursor: "pointer",
+          }}
           onClick={() => navigate("/kroger")}
         >
           <Title align="center">Kroger</Title>
@@ -25,7 +30,11 @@ export const ChooseProject = () => {
           h="30%"
           justify="center"
           align="center"
-          sx={{ border: "4px solid black", borderRadius: "30px" }}
+          sx={{
+            border: "4px solid black",
+            borderRadius: "30px",
+            cursor: "pointer",
+          }}
           onClick={() => navigate("/geohash")}
         >
           <Title align="center">Geohash</Title>

@@ -1,6 +1,6 @@
-import { Flex, Title } from "@mantine/core";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
+import { Flex, Title } from "@mantine/core";
 
 export const ChooseProject = () => {
   const navigate = useNavigate();
